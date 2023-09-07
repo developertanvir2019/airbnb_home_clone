@@ -1,16 +1,10 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Swich from "./components/Swich";
-import AllHouse from "./components/listings/AllHouse";
-import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Swich />
-      <AllHouse />
-      <Footer />
+      <Home />
     </div>
   );
 }

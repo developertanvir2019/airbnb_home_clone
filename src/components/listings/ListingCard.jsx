@@ -1,14 +1,6 @@
 import HeartButton from "./Button";
 
-const ListingCard = ({
-  data,
-  reservation,
-  onAction,
-  disabled,
-  actionLabel,
-  actionId = "",
-  currentUser,
-}) => {
+const ListingCard = ({ hideDetails }) => {
   return (
     <div className="col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-2 w-full">
@@ -43,6 +35,7 @@ const ListingCard = ({
             <HeartButton />
           </div>
         </div>
+
         <div className="font-semibold text-lg">
           {/* {location?.region}, {location?.label} */}
           Dhaka,Bangladesh
@@ -52,6 +45,9 @@ const ListingCard = ({
           12--7-2002
         </div>
         <div className="font-semibold">{/* $ {price} */}$30239</div>
+        <div className={!hideDetails ? "hidden" : "block"}>
+          <p>$285 total before taxes</p>
+        </div>
       </div>
     </div>
   );
