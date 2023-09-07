@@ -38,7 +38,7 @@ export const categories = [
 
 const Categories = () => {
   return (
-    <div className="px-6 flex justify-between items-center">
+    <div className="px-6 flex justify-between items-center py-4">
       <div
         className="
           flex 
