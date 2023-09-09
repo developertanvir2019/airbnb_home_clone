@@ -18,7 +18,12 @@ const AllHouse = ({ hideDetails }) => {
             bathroom,
           },
         });
-        setHotels(response.data);
+
+        const formattedHotels = response.data.map((hotel) => ({
+          ...hotel,
+          date: new Date(hotel.date).toISOString().split("T")[0], // Format as YYYY-MM-DD
+        }));
+        setHotels(formattedHotels);
       } catch (error) {
         console.error("error fetching hotels", error);
       }

@@ -1,6 +1,6 @@
 import HeartButton from "./Button";
 
-const ListingCard = ({ hideDetails }) => {
+const ListingCard = ({ hideDetails, hotel }) => {
   return (
     <div className="col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-2 w-full">
@@ -22,7 +22,7 @@ const ListingCard = ({ hideDetails }) => {
               group-hover:scale-110 
               transition
             "
-            src="https://a0.muscache.com/im/pictures/4311ce8c-007d-4e69-8c08-8a540ab8ec2f.jpg?im_w=720"
+            src={hotel?.imgUrl}
             alt="Listing"
           />
           <div
@@ -37,16 +37,12 @@ const ListingCard = ({ hideDetails }) => {
         </div>
 
         <div className="font-semibold text-lg">
-          {/* {location?.region}, {location?.label} */}
-          Dhaka,Bangladesh
+          {hotel?.region}, {hotel?.country}
         </div>
-        <div className="font-light text-neutral-500">
-          {/* {reservationDate || data.category} */}
-          12--7-2002
-        </div>
-        <div className="font-semibold">{/* $ {price} */}$30239</div>
+        <div className="font-light text-neutral-500">{hotel?.date}</div>
+        <div className="font-semibold">$ {hotel?.price}</div>
         <div className={!hideDetails ? "hidden" : "block"}>
-          <p>$285 total before taxes</p>
+          <p>${hotel?.price - hotel?.tax} total before taxes</p>
         </div>
       </div>
     </div>
