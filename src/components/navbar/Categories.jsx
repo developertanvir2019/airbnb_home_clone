@@ -38,31 +38,38 @@ export const categories = [
   },
 ];
 
-const Categories = () => {
-  const [minValue, set_minValue] = useState(25);
-  const [maxValue, set_maxValue] = useState(75);
+const Categories = ({
+  selectedBedroom,
+  selectBed,
+  selectBathroom,
+  setSelectedBedroom,
+  setSelectBed,
+  setSelectBathroom,
+  hotels,
+  minValue,
+  set_minValue,
+  maxValue,
+  set_maxValue,
+}) => {
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
   };
   // bedrooms
-  const [selectedBedroom, setSelectedBedroom] = useState(null);
-  const [selectBed, setSelectBed] = useState(null);
-  const [selectBathroom, setSelectBathroom] = useState(null);
-  console.log(selectedBedroom, selectBed, selectBathroom);
-  const bedrooms = [1, 2, 3, 4, 5, 6];
+
+  const bedrooms = ["Any", 1, 2, 3, 4, 5, 6];
   const handleBedroomClick = (buttonValue) => {
     setSelectedBedroom(buttonValue);
   };
 
   // beds
-  const bed = [1, 2, 3, 4, 5, 6, 7];
+  const bed = ["Any", 1, 2, 3, 4, 5, 6, 7];
   const handleBedClick = (value) => {
     setSelectBed(value);
   };
 
   // bathrooms
-  const bathrooms = [1, 2, 3, 4, 5, 6];
+  const bathrooms = ["Any", 1, 2, 3, 4, 5, 6];
   const handleBathroom = (value) => {
     setSelectBathroom(value);
   };
@@ -111,7 +118,7 @@ const Categories = () => {
       </div>
       <dialog id="my_modal_3" className="modal">
         {/* <div className="modal-box w-11/12 max-w-4xl"> */}
-        <div className="modal-box">
+        <div className="modal-box h-auto">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -119,10 +126,10 @@ const Categories = () => {
             </button>
           </form>
           <div>
-            <label className="font-semibold mb-2">Price Range:</label>
+            <h2 className="font-semibold text-xl text-center mb-2">Filters</h2>
             <MultiRangeSlider
               min={0}
-              max={100}
+              max={300}
               step={5}
               minValue={minValue}
               maxValue={maxValue}
@@ -194,6 +201,11 @@ const Categories = () => {
                 </button>
               ))}
             </div>
+          </div>
+          <div className="flex justify-end">
+            <button className="btn btn-active btn-neutral mt-3">
+              Show {hotels?.length > 0 ? hotels.length : 0} stays
+            </button>
           </div>
         </div>
       </dialog>

@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../assets/images/logo.png";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
-import Categories from "./Categories";
 
 const Navbar = () => {
   return (
@@ -20,7 +19,6 @@ const Navbar = () => {
           <UserMenu />
         </div>
       </div>
-      <Categories />
     </>
   );
 };

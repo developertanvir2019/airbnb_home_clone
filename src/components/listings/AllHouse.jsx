@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 import axios from "axios";
 
-const AllHouse = ({ hideDetails }) => {
-  const [hotels, setHotels] = useState([]);
-  const [room, setRoom] = useState("");
-  const [bed, setBed] = useState("");
-  const [bathroom, setBathroom] = useState("");
-
+const AllHouse = ({
+  hideDetails,
+  selectedBedroom: room,
+  selectBed: bed,
+  selectBathroom: bathroom,
+  hotels,
+  setHotels,
+  minValue,
+  maxValue,
+}) => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
@@ -16,6 +20,8 @@ const AllHouse = ({ hideDetails }) => {
             room,
             bed,
             bathroom,
+            minValue,
+            maxValue,
           },
         });
 
@@ -29,7 +35,7 @@ const AllHouse = ({ hideDetails }) => {
       }
     };
     fetchHotels();
-  }, [room, bed, bathroom]);
+  }, [room, bed, bathroom, setHotels, minValue, maxValue]);
 
   return (
     <div className="lg:grid grid-cols-4 gap-5 mx-10">
