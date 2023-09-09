@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import avatar from "../../assets/images/placeholder.jpg";
+import { RiGlobalLine } from "react-icons/ri";
 
 import MenuItem from "./MenuItem";
 
@@ -31,6 +32,9 @@ const UserMenu = () => {
         >
           Airbnb your home
         </div>
+
+        <RiGlobalLine size={20} />
+
         <div
           onClick={toggleOpen}
           className="

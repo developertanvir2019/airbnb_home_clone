@@ -2,7 +2,6 @@ import { TbBeach, TbMountain } from "react-icons/tb";
 import { GiBoatFishing, GiCastle, GiIsland } from "react-icons/gi";
 import { BsSnow } from "react-icons/bs";
 import CategoryBox from "./CategoryBox";
-import { useState } from "react";
 import MultiRangeSlider from "multi-range-slider-react";
 
 export const categories = [
@@ -32,7 +31,7 @@ export const categories = [
     description: "This property is in arctic environment!",
   },
   {
-    label: "Iconic city",
+    label: "Iconic",
     icon: GiCastle,
     description: "This property is an ancient iconic city!",
   },
@@ -50,6 +49,8 @@ const Categories = ({
   set_minValue,
   maxValue,
   set_maxValue,
+  setCategoryName,
+  categoryName,
 }) => {
   const handleInput = (e) => {
     set_minValue(e.minValue);
@@ -86,7 +87,13 @@ const Categories = ({
         "
         >
           {categories.map((item) => (
-            <CategoryBox key={item.label} label={item.label} icon={item.icon} />
+            <CategoryBox
+              setCategoryName={setCategoryName}
+              categoryName={categoryName}
+              key={item.label}
+              label={item.label}
+              icon={item.icon}
+            />
           ))}
         </div>
         <div
@@ -203,9 +210,11 @@ const Categories = ({
             </div>
           </div>
           <div className="flex justify-end">
-            <button className="btn btn-active btn-neutral mt-3">
-              Show {hotels?.length > 0 ? hotels.length : 0} stays
-            </button>
+            <form method="dialog">
+              <button className="btn btn-active btn-neutral mt-3">
+                Show {hotels?.length > 0 ? hotels.length : 0} stays
+              </button>
+            </form>
           </div>
         </div>
       </dialog>

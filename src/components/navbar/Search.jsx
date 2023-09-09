@@ -1,56 +1,15 @@
 import { BiSearch } from "react-icons/bi";
-// import { differenceInDays } from "date-fns";
-
-// import { useSearchParams } from "next/navigation";
-// import useSearchModal from "@/app/hooks/useSearchModal";
-// import useCountries from "@/app/hooks/useCountries";
+import "./search.css";
 
 const Search = () => {
-  // const searchModal = useSearchModal();
-  // const params = useSearchParams();
-  // const { getByValue } = useCountries();
-
-  // const locationValue = params?.get("locationValue");
-  // const startDate = params?.get("startDate");
-  // const endDate = params?.get("endDate");
-  // const guestCount = params?.get("guestCount");
-
-  // const locationLabel = useMemo(() => {
-  //   if (locationValue) {
-  //     return getByValue(locationValue)?.label;
-  //   }
-
-  //   return "Anywhere";
-  // }, [locationValue, getByValue]);
-
-  // const durationLabel = useMemo(() => {
-  //   if (startDate && endDate) {
-  //     const start = new Date(startDate);
-  //     const end = new Date(endDate);
-  //     let diff = differenceInDays(end, start);
-
-  //     if (diff === 0) {
-  //       diff = 1;
-  //     }
-
-  //     return `${diff} Days`;
-  //   }
-
-  //   return "Any Week";
-  // }, [startDate, endDate]);
-
-  // const guestLabel = useMemo(() => {
-  //   if (guestCount) {
-  //     return `${guestCount} Guests`;
-  //   }
-
-  //   return "Add Guests";
-  // }, [guestCount]);
-
   return (
-    <div
-      // onClick={searchModal.onOpen}
-      className="
+    <>
+      <div
+        onClick={() => {
+          document.getElementById("my_modal_4").showModal();
+          document.getElementById("modal99").showModal();
+        }}
+        className="
         border-[1px] 
         w-full 
         md:w-auto 
@@ -61,26 +20,26 @@ const Search = () => {
         transition 
         cursor-pointer
       "
-    >
-      <div
-        className="
+      >
+        <div
+          className="
           flex 
           flex-row 
           items-center 
           justify-between
         "
-      >
-        <div
-          className="
+        >
+          <div
+            className="
             text-sm 
             font-semibold 
             px-6
           "
-        >
-          Anywhere
-        </div>
-        <div
-          className="
+          >
+            Anywhere
+          </div>
+          <div
+            className="
             hidden 
             sm:block 
             text-sm 
@@ -90,11 +49,11 @@ const Search = () => {
             flex-1 
             text-center
           "
-        >
-          Any Week
-        </div>
-        <div
-          className="
+          >
+            Any Week
+          </div>
+          <div
+            className="
             text-sm 
             pl-6 
             pr-2 
@@ -104,21 +63,35 @@ const Search = () => {
             items-center 
             gap-3
           "
-        >
-          <div className="hidden sm:block">Add guest</div>
-          <div
-            className="
+          >
+            <div className="hidden sm:block">Add guest</div>
+            <div
+              className="
               p-2 
               bg-rose-500 
               rounded-full 
               text-white
             "
-          >
-            <BiSearch size={18} />
+            >
+              <BiSearch size={18} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <dialog id="my_modal_4" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">Click the button below to close</p>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </>
   );
 };
 

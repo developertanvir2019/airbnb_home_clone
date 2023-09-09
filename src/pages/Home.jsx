@@ -6,13 +6,14 @@ import Footer from "../components/Footer";
 import Categories from "../components/navbar/Categories";
 
 const Home = () => {
-  const [hideDetails, setHideDetails] = useState(true);
+  const [hideDetails, setHideDetails] = useState(false);
   const [selectedBedroom, setSelectedBedroom] = useState(null);
   const [selectBed, setSelectBed] = useState(null);
   const [selectBathroom, setSelectBathroom] = useState(null);
   const [hotels, setHotels] = useState([]);
-  const [minValue, set_minValue] = useState(null);
-  const [maxValue, set_maxValue] = useState(null);
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(300);
+  const [categoryName, setCategoryName] = useState(null);
   return (
     <>
       <Navbar />
@@ -28,6 +29,8 @@ const Home = () => {
         set_minValue={set_minValue}
         maxValue={maxValue}
         set_maxValue={set_maxValue}
+        setCategoryName={setCategoryName}
+        categoryName={categoryName}
       />
       <Swich setHideDetails={setHideDetails} hideDetails={hideDetails} />
       <AllHouse
@@ -39,6 +42,7 @@ const Home = () => {
         setHotels={setHotels}
         maxValue={maxValue}
         minValue={minValue}
+        categoryName={categoryName}
       />
       <Footer />
     </>

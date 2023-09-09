@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ListingCard from "./ListingCard";
 import axios from "axios";
 
@@ -11,6 +11,7 @@ const AllHouse = ({
   setHotels,
   minValue,
   maxValue,
+  categoryName,
 }) => {
   useEffect(() => {
     const fetchHotels = async () => {
@@ -22,6 +23,7 @@ const AllHouse = ({
             bathroom,
             minValue,
             maxValue,
+            categoryName,
           },
         });
 
@@ -35,7 +37,7 @@ const AllHouse = ({
       }
     };
     fetchHotels();
-  }, [room, bed, bathroom, setHotels, minValue, maxValue]);
+  }, [room, bed, bathroom, setHotels, minValue, maxValue, categoryName]);
 
   return (
     <div className="lg:grid grid-cols-4 gap-5 mx-10">
