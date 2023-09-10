@@ -53,17 +53,25 @@ const AllHouse = ({
     searchText,
   ]);
   return (
-    <div className="lg:grid grid-cols-4 gap-5 mx-10">
-      {hotels?.map((hotel) => {
-        return (
-          <ListingCard
-            key={hotel?._id}
-            hotel={hotel}
-            hideDetails={hideDetails}
-          />
-        );
-      })}
-    </div>
+    <>
+      {hotels?.length ? (
+        <div className="lg:grid grid-cols-4 gap-5 mx-10">
+          {hotels?.map((hotel) => {
+            return (
+              <ListingCard
+                key={hotel?._id}
+                hotel={hotel}
+                hideDetails={hideDetails}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="flex justify-center">
+          <h2 className="font-bold text-3xl text-red-600">No Data Found</h2>
+        </div>
+      )}
+    </>
   );
 };
 
