@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo.png";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 
-const Navbar = () => {
+const Navbar = ({ setSearchText }) => {
   return (
     <>
       <div className="navbar py-4 bg-base-100 border-b-2 px-10">
@@ -13,7 +13,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Search />
+        <Search setSearchText={setSearchText} />
         <div className="navbar-end w-1/3">
           {" "}
           <UserMenu />

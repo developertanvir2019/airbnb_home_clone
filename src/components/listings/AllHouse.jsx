@@ -12,6 +12,7 @@ const AllHouse = ({
   minValue,
   maxValue,
   categoryName,
+  searchText,
 }) => {
   useEffect(() => {
     const fetchHotels = async () => {
@@ -24,6 +25,7 @@ const AllHouse = ({
             minValue,
             maxValue,
             categoryName,
+            country: searchText,
           },
         });
 
@@ -37,8 +39,16 @@ const AllHouse = ({
       }
     };
     fetchHotels();
-  }, [room, bed, bathroom, setHotels, minValue, maxValue, categoryName]);
-
+  }, [
+    room,
+    bed,
+    bathroom,
+    setHotels,
+    minValue,
+    maxValue,
+    categoryName,
+    searchText,
+  ]);
   return (
     <div className="lg:grid grid-cols-4 gap-5 mx-10">
       {hotels?.map((hotel) => {

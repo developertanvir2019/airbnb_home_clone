@@ -1,6 +1,6 @@
 import { BiSearch } from "react-icons/bi";
 import Modal from "./Modal";
-const Search = () => {
+const Search = ({ setSearchText }) => {
   return (
     <>
       <div
@@ -76,7 +76,7 @@ const Search = () => {
           </div>
         </div>
       </div>
-      <Modal />
+      <Modal setSearchText={setSearchText} />
     </>
   );
 };

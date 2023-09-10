@@ -14,9 +14,10 @@ const Home = () => {
   const [minValue, set_minValue] = useState(0);
   const [maxValue, set_maxValue] = useState(300);
   const [categoryName, setCategoryName] = useState(null);
+  const [searchText, setSearchText] = useState("");
   return (
     <>
-      <Navbar />
+      <Navbar setSearchText={setSearchText} />
       <Categories
         selectedBedroom={selectedBedroom}
         selectBed={selectBed}
@@ -34,6 +35,7 @@ const Home = () => {
       />
       <Swich setHideDetails={setHideDetails} hideDetails={hideDetails} />
       <AllHouse
+        searchText={searchText}
         hideDetails={hideDetails}
         selectedBedroom={selectedBedroom}
         selectBed={selectBed}

@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import "./modal.css";
 import { BiSearch } from "react-icons/bi";
+import DateRangePicker from "./DatePicker";
+import LocationPicker from "./LocationPicker";
 
-const Modal = () => {
-  const [activeTab, setActiveTab] = useState(1);
+const Modal = ({ setSearchText }) => {
+  const [activeTab, setActiveTab] = useState(2);
 
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
   };
+
+  let content;
+  if (activeTab === 2 || activeTab === 3) {
+    content = <DateRangePicker />;
+  } else if (activeTab === 1) {
+    content = <LocationPicker />;
+  }
   return (
     <>
       <dialog id="my_modal_4" className="modal modal-top mt-20">
@@ -25,9 +34,10 @@ const Modal = () => {
                   <input
                     className={`ms-4 rounded-lg ${
                       activeTab === 1 ? "bg-white" : "bg-gray-200"
-                    }`}
+                    } focus:outline-none border-none`}
                     placeholder="Search destination"
                     type="text"
+                    onChange={(e) => setSearchText(e.target.value)}
                   />
                 </div>
                 <div
@@ -57,13 +67,21 @@ const Modal = () => {
                   <h5 className=" text-sm font-semibold px-6">Who</h5>
                   <p className="text-sm text-gray-500">Add Guests</p>
                 </div>
-                <div className="text-sm  pl-6  pr-2  text-gray-600 flex flex-row items-center gap-3 py-2">
+                {/* <div className="text-sm  pl-6  pr-2  text-gray-600 flex flex-row items-center gap-3 py-2">
                   <div className=" px-4 py-3 bg-rose-500  rounded-xl flex text-white">
                     <BiSearch size={18} /> <span>Search</span>
                   </div>
+                </div> */}
+                <div className="modal-action -mt-1">
+                  <form method="dialog">
+                    <button className="btn mx-2 text-white  bg-rose-500 hover:bg-rose-600">
+                      <BiSearch size={18} /> <span>Search</span>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
+            <div className="flex justify-center mt-4">{content}</div>
           </>
           <div className="modal-action">
             <form method="dialog">
