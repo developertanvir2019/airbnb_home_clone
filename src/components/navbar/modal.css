@@ -1,0 +1,11 @@
+.top-modal {
+  position: fixed;
+  top: 40px; /* Set the top position to leave a 40px gap */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Adjust the z-index as needed */
+  max-height: calc(
+    100% - 40px
+  ); /* Ensure the modal doesn't overflow the viewport */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
+}

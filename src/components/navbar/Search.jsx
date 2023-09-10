@@ -1,13 +1,11 @@
 import { BiSearch } from "react-icons/bi";
-import "./search.css";
-
+import Modal from "./Modal";
 const Search = () => {
   return (
     <>
       <div
         onClick={() => {
           document.getElementById("my_modal_4").showModal();
-          document.getElementById("modal99").showModal();
         }}
         className="
         border-[1px] 
@@ -78,19 +76,7 @@ const Search = () => {
           </div>
         </div>
       </div>
-
-      <dialog id="my_modal_4" className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">Click the button below to close</p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
+      <Modal />
     </>
   );
 };
