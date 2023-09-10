@@ -17,17 +17,20 @@ const AllHouse = ({
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/hotel", {
-          params: {
-            room,
-            bed,
-            bathroom,
-            minValue,
-            maxValue,
-            categoryName,
-            country: searchText,
-          },
-        });
+        const response = await axios.get(
+          "https://hero-server-july.vercel.app/api/hotel",
+          {
+            params: {
+              room,
+              bed,
+              bathroom,
+              minValue,
+              maxValue,
+              categoryName,
+              country: searchText,
+            },
+          }
+        );
 
         const formattedHotels = response.data.map((hotel) => ({
           ...hotel,
